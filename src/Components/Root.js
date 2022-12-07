@@ -1,13 +1,16 @@
 import { React, useState } from "react";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { Box, Tab } from "@mui/material";
-import { Link, Navigate, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 import Header from "./Header";
 import Home from "../Pages/Home";
 
 const Root = () => {
-  const [selectedTab, setSelectedTab] = useState("home");
+  const currentPath = useLocation().pathname;
+  const [selectedTab, setSelectedTab] = useState(
+    currentPath === "/" ? "/home" : currentPath
+  );
 
   return (
     <div
@@ -17,7 +20,7 @@ const Root = () => {
       }}
     >
       <Header />
-      <Box sx={{ width: "100%", typography: "body1" }}>
+      <Box sx={{ typography: "body1" }}>
         <TabContext value={selectedTab}>
           <Box
             sx={{
@@ -33,41 +36,41 @@ const Root = () => {
                 setSelectedTab(newSelectedTab);
               }}
             >
-              <Tab
-                label="קולקטיב"
-                value="collective"
-                component={Link}
-                to={`/collective`}
-              />
-              <Tab
-                label="שאלות ותשובות"
-                value="qna"
-                component={Link}
-                to={`/qna`}
-              />
-              <Tab label="צוות" value="team" component={Link} to={`/team`} />
+              <Tab label="דף הבית" value="/home" component={Link} to="/home" />
               <Tab
                 label="פרוייקטים"
-                value="projects"
+                value="/projects"
                 component={Link}
-                to={`/projects`}
+                to="/projects"
               />
-              <Tab label="דף הבית" value="home" component={Link} to={`/home`} />
+              <Tab label="צוות" value="/team" component={Link} to="/team" />
+              <Tab
+                label="שאלות ותשובות"
+                value="/qna"
+                component={Link}
+                to="/qna"
+              />
+              <Tab
+                label="קולקטיב"
+                value="/collective"
+                component={Link}
+                to="/collective"
+              />
             </TabList>
           </Box>
-          <TabPanel value="home">
+          <TabPanel value="/home">
             <Home />
           </TabPanel>
-          <TabPanel value="projects">
+          <TabPanel value="/projects">
             <Outlet />
           </TabPanel>
-          <TabPanel value="team">
+          <TabPanel value="/team">
             <Outlet />
           </TabPanel>
-          <TabPanel value="qna">
+          <TabPanel value="/qna">
             <Outlet />
           </TabPanel>
-          <TabPanel value="collective">
+          <TabPanel value="/collective">
             <Outlet />
           </TabPanel>
         </TabContext>
