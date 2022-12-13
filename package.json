@@ -2,6 +2,7 @@
   "name": "mangashelf-il",
   "version": "0.1.0",
   "homepage": "https://idomiko.github.io/mangashelf-il",
+  "predeploy": "npm run build",
   "deploy": "mangashelf-il -d build",
   "private": true,
   "dependencies": {
