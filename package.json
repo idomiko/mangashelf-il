@@ -1,7 +1,6 @@
 {
   "name": "mangashelf-il",
   "version": "0.1.0",
-  "homepage": "https://idomiko.github.io/mangashelf-il",
   "private": true,
   "dependencies": {
     "-": "^0.0.1",
@@ -27,9 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
