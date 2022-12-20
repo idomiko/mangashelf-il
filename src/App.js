@@ -11,28 +11,28 @@ import ErrorPage from "./Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
-    path: "/mangashelf-il/",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/mangashelf-il/home",
+        path: "/home",
         element: <Home />,
       },
       {
-        path: "/mangashelf-il/projects",
+        path: "/projects",
         element: <Projects />,
       },
       {
-        path: "/mangashelf-il/team",
+        path: "/team",
         element: <Team />,
       },
       {
-        path: "/mangashelf-il/qna",
+        path: "/qna",
         element: <QnA />,
       },
       {
-        path: "/mangashelf-il/collective",
+        path: "/collective",
         element: <Collective />,
       },
     ],
