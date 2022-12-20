@@ -8,8 +8,9 @@ import Home from "../Pages/Home";
 
 const Root = () => {
   const currentPath = useLocation().pathname;
+  console.log({ currentPath });
   const [selectedTab, setSelectedTab] = useState(
-    currentPath === "/" ? "/home" : currentPath
+    currentPath === "/mangashelf-il" ? "/mangashelf-il/home" : currentPath
   );
 
   return (
@@ -36,42 +37,55 @@ const Root = () => {
                 setSelectedTab(newSelectedTab);
               }}
             >
-              <Tab label="דף הבית" value="/home" component={Link} to="/home" />
+              <Tab
+                label="דף הבית"
+                value="/mangashelf-il/home"
+                component={Link}
+                to="/mangashelf-il/home"
+              />
               <Tab
                 label="פרוייקטים"
-                value="/projects"
+                value="/mangashelf-il/projects"
                 component={Link}
-                to="/projects"
+                to="/mangashelf-il/projects"
               />
-              <Tab label="צוות" value="/team" component={Link} to="/team" />
+              <Tab
+                label="צוות"
+                value="/mangashelf-il/team"
+                component={Link}
+                to="/mangashelf-il/team"
+              />
               <Tab
                 label="שאלות ותשובות"
-                value="/qna"
+                value="/mangashelf-il/qna"
                 component={Link}
-                to="/qna"
+                to="/mangashelf-il/qna"
               />
               <Tab
                 label="קולקטיב"
-                value="/collective"
+                value="/mangashelf-il/collective"
                 component={Link}
-                to="/collective"
+                to="/mangashelf-il/collective"
               />
             </TabList>
           </Box>
-          <TabPanel value="/home">
+          <TabPanel value="/mangashelf-il/home">
             <Home />
           </TabPanel>
-          <TabPanel value="/projects">
+          <TabPanel value="/mangashelf-il/projects">
             <Outlet />
           </TabPanel>
-          <TabPanel value="/team">
+          <TabPanel value="/mangashelf-il/team">
             <Outlet />
           </TabPanel>
-          <TabPanel value="/qna">
+          <TabPanel value="/mangashelf-il/qna">
             <Outlet />
           </TabPanel>
-          <TabPanel value="/collective">
+          <TabPanel value="/mangashelf-il/collective">
             <Outlet />
+          </TabPanel>
+          <TabPanel value="/mangashelf-il">
+            <Home />
           </TabPanel>
         </TabContext>
       </Box>
